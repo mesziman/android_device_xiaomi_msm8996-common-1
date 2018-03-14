@@ -33,6 +33,9 @@ PRODUCT_CHARACTERISTICS := nosdcard
 # Boot animation
 TARGET_SCREEN_HEIGHT := 1920
 TARGET_SCREEN_WIDTH := 1080
+PRODUCT_GENERIC_PROPERTIES += \		     
+    use.dts_eagle=true \
+    hpx_send_params=1
 
 # HWUI overrides
  $(call inherit-product, vendor/omni/config/phone-xxxhdpi-3072-hwui-memory.mk)

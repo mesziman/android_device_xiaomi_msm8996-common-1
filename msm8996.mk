@@ -156,6 +156,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     XiaomiParts
 
+
+PRODUCT_PACKAGES += android.hardware.power@1.0-service.gemini
+
+PRODUCT_PACKAGES += android.hardware.dumpstate@1.0-service.gemini
+
 # Display
 PRODUCT_PACKAGES += \
     android.hardware.graphics.allocator@2.0-impl \
@@ -299,7 +304,7 @@ PRODUCT_PACKAGES += \
     libstagefrighthw
 
 # Power
-PRODUCT_PACKAGES += \
+#PRODUCT_PACKAGES += \
     android.hardware.power@1.0-impl \
     power.msm8996
 
@@ -375,6 +380,8 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/WCNSS_qcom_cfg.ini
+
+PRODUCT_PROPERTY_OVERRIDES += ro.hardware.power=gemini
 
 # Wfd
 PRODUCT_BOOT_JARS += \

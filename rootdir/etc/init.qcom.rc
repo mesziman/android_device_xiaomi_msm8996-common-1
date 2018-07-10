@@ -441,6 +441,12 @@ service tftp_server /vendor/bin/tftp_server
     user root
     writepid /dev/cpuset/system-background/tasks
 
+service atfwd /vendor/bin/ATFWD-daemon
+    class late_start
+    user system
+    group system radio
+    writepid /dev/cpuset/system-background/tasks
+
 on property:wc_transport.start_hci=true
     start start_hci_filter
 
@@ -605,6 +611,13 @@ service readfem /vendor/bin/readfem
     group root diag
     oneshot
 
+service perfd /vendor/bin/perfd
+    class main
+    user root
+    group root system
+    writepid /dev/cpuset/system-background/tasks
+    disabled
+
 service readmac /vendor/bin/readmac
     class main
     user root
@@ -674,13 +687,6 @@ service tfa-sh /vendor/bin/init.tfa.sh /vendor/etc/silence_short.wav 15 1
     group system
     disabled
     oneshot
-
-service perfd /vendor/bin/perfd
-   class main
-   user root
-   group root system
-   writepid /dev/cpuset/system-background/tasks
-   disabled
 
 on property:sys.post_boot.parsed=1
     start perfd
